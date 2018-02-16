@@ -1,0 +1,376 @@
+<head>
+<style>
+canvas{
+
+width:250px;
+height:500px;
+left:150px;
+top:50px;
+background-color:black;
+background-image:src"https://thumbs.dreamstime.com/z/asphalt-road-markings-top-view-47240953.jpg";
+align:left;
+float:left;
+
+}
+div{float:left;}
+body{background-color:yellow;
+}
+input{
+border-radius:100px;
+background-color:red;
+}
+#shop{
+width:750px;
+height:2000px;
+align:left;
+border:1px solid;
+float:left;
+overflow:scroll;
+color:red;
+background-color:black;
+
+}
+#info{background-color:black;
+color:red;
+width:500px;
+height:500px;}
+p{border:3px solid;
+align:center;
+text-align:center;
+font-size:20px;
+border-radius:100px
+
+}
+h2{
+font-size:30px
+}
+#items{
+
+width:450px;
+height:500px;
+background-color:black;
+}
+#item1,#item3,#item4{
+width:450px;
+height:150px;
+background-color:black}
+#item2{
+width:450px;
+height:150px;
+background-color:black}
+</style>
+<script>
+
+var items1=['20','220','120']
+var items2=['20','220','120']
+var items3=['20','220','120']
+var items4=['120','220','20']
+var items=["blue","orange","lightblue","pink","yellow","purple"]
+var i1= items[Math.floor(Math.random()*items.length)];
+var i2= items[Math.floor(Math.random()*items.length)];
+var i3= items[Math.floor(Math.random()*items.length)];
+var i4= items[Math.floor(Math.random()*items.length)];
+var i5= items[Math.floor(Math.random()*items.length)];
+var i6= items[Math.floor(Math.random()*items.length)];
+var i7= items[Math.floor(Math.random()*items.length)];
+var x10=500
+var x20=500
+var x=120
+var y=100
+var w=55
+var h=30
+var x1=items1[Math.floor(Math.random()*items1.length)];
+var x111=items3[Math.floor(Math.random()*items1.length)];
+var x1111=items4[Math.floor(Math.random()*items1.length)];
+var y1=-30
+var y2=-120
+var y3=-180
+var y4=-250
+var y5=-330
+var x2=items2[Math.floor(Math.random()*items3.length)];
+var x22=items2[Math.floor(Math.random()*items2.length)];
+var x3=items3[Math.floor(Math.random()*items3.length)];
+var x33=items2[Math.floor(Math.random()*items2.length)];
+var coins=0
+var score=0
+console.log(localStorage.getItem('highscore'));
+var btnn=document.getElementById("btn")
+var txt=document.createTextNode(score)
+var highscore=localStorage.getItem('highscore')
+var high=document.getElementById("highscore1")
+var i= "green"
+var speed=0
+function startgame(){
+if(window.localStorage){
+if(score>highscore){
+highscore=score
+localStorage.setItem('highscore',highscore)
+highscore1.value=localStorage.getItem('highscore')
+}}
+
+//console.log(coins)
+
+if(x1!=100 && x2!=100 && x3!=100){x1=120}
+if(x1!=20 && x2!=20 && x3!=20){x2=20}
+if(x1!=220 && x2!=220 && x3!=220){x3=220}
+
+speed++
+highscore1.value="highscore:"+highscore
+btn.value="score:"+score
+console.log(score)
+var c=document.getElementById("canvas1")//canvas
+var ctx=c.getContext("2d")//canvas context
+requestAnimationFrame(startgame)
+ctx.clearRect(0,0,innerWidth,innerHeight)
+ctx.fillStyle=i
+ctx.fillRect(x,y,w,h)//main object
+ctx.fillStyle=items[Math.floor(Math.random()*items.length)];
+ctx.fillRect(x10,y,15,5)
+ctx.fillRect(x20,y,15,5)
+ctx.fillStyle=i1
+ctx.fillRect(x111,y1,w,h)//obs 1
+y1++
+y2++
+y3++
+y4++
+y5++
+ctx.fillStyle=i2
+ctx.fillRect(x22,y2,w,h)
+ctx.fillStyle=i3
+ctx.fillRect(x3,y1,w,h)
+ctx.fillStyle=i4
+ctx.fillRect(x1,y3,w,h)
+ctx.fillStyle=i5
+ctx.fillRect(x33,y4,w,h)
+ctx.fillStyle=i6
+ctx.fillRect(x2,y4,w,h)
+ctx.fillStyle=i7
+ctx.fillRect(x1111,y5,w,h)
+//-------------------------------------------------------------------------------------------------------------------------------------------
+// if main obj. goes out of area:
+if(x>220)(x=220)
+if(x<20){x=20}
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+//if hits :
+check(x111,x,y1,y);check(x1,x,y3,y);check(x1111,x,y5,y);
+check(x22,x,y2,y);check(x2,x,y4,y);
+check(x3,x,y1,y);check(x33,x,y4,y);
+
+
+scoreadd(x111,x,y1,y);scoreadd(x1,x,y3,y);scoreadd(x1111,x,y5,y);
+scoreadd(x22,x,y2,y);scoreadd(x2,x,y4,y);
+scoreadd(x33,x,y1,y);scoreadd(x33,x,y4,y);
+
+if(y1>=150){y1=-250; 
+x111=items3[Math.floor(Math.random()*items3.length)];
+ i1= items[Math.floor(Math.random()*items.length)];
+  i3= items[Math.floor(Math.random()*items.length)];
+x3=items3[Math.floor(Math.random()*items1.length)];}
+if(y2>=150){y2=-250;x22=items2[Math.floor(Math.random()*items3.length)];
+ i2= items[Math.floor(Math.random()*items.length)];}
+if(y3>=150){y3=-250;x1=items4[Math.floor(Math.random()*items1.length)];
+ i4= items[Math.floor(Math.random()*items.length)];}
+if(y4>=150){y4=-250 ;x33=items1[Math.floor(Math.random()*items4.length)];
+ i5= items[Math.floor(Math.random()*items.length)]; i6= items[Math.floor(Math.random()*items.length)];}
+if(y5>=150){y5=-250;x1111=items4[Math.floor(Math.random()*items2.length)];i7= items[Math.floor(Math.random()*items.length)];}
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
+}
+function move(event){
+if(event.keyCode==37){
+x=x-100
+}
+ 
+if(event.keyCode==39){
+x=x+100
+}
+if(event.keyCode==13){
+startgame()
+
+}
+}
+if(score==50){startgame()}
+if(score==100){startgame()}
+if(score==150){startgame()}
+if(score==200){startgame()}
+if(score==250){startgame()}
+if(score==300){startgame()}
+if(score==350){startgame()}
+if(score==400){startgame()}
+function check(xn1,xn2,yn1,yn2){
+if(xn1==xn2){
+if(Math.sqrt((xn2-xn1)*(xn2-xn1)+(yn2-yn1)*(yn2-yn1))<h){
+
+
+
+alert("you lose. your score is :"+ score)
+location.reload()
+}}
+
+
+
+}
+function scoreadd(xn1,xn2,yn1,yn2){
+if(xn2!=xn1  && yn2==yn1 ){score++;coins++}
+}
+function out(yn){
+if(yn>=150){yn=-250}
+}
+function shopview(){
+var w1=items[Math.floor(Math.random()*items.length)];
+var c11=document.getElementById("item1")
+var ctx11=c11.getContext("2d")
+requestAnimationFrame(shopview)
+ctx11.clearRect(0,0,innerWidth,innerHeight)
+ctx11.fillStyle="red"
+ctx11.fillRect(20,20,h,w*2)
+ctx11.fillStyle="blue"
+ctx11.fillRect(120,20,h,w*2)
+ctx11.fillStyle="lightgreen"
+ctx11.fillRect(220,20,h,w*2)
+var cc=document.getElementById("item2")
+var ctx1=cc.getContext("2d")
+ctx1.fillStyle="pink"
+ctx1.fillRect(20,20,h,w*2)
+ctx1.fillStyle="orange"
+ctx1.fillRect(120,20,h,w*2)
+ctx1.fillStyle=w1
+ctx1.fillRect(220,20,h,w*2)
+var ccc=document.getElementById("item3")
+var ctx2=ccc.getContext("2d")
+ctx2.fillStyle="red"
+ctx2.fillRect(20,20,h,w*2)
+ctx2.fillStyle=items[Math.floor(Math.random()*items.length)];
+ctx2.fillRect(24,20,10,15)
+ctx2.fillRect(36,20,10,15)
+ctx2.fillStyle="blue"
+ctx2.fillRect(120,20,h,w*2)
+ctx2.fillStyle=items[Math.floor(Math.random()*items.length)];
+ctx2.fillRect(124,20,10,15)
+ctx2.fillRect(136,20,10,15)
+ctx2.fillStyle="lightgreen"
+ctx2.fillRect(220,20,h,w*2)
+ctx2.fillStyle=items[Math.floor(Math.random()*items.length)];
+ctx2.fillRect(224,20,10,15)
+ctx2.fillRect(236,20,10,15)
+var cccc=document.getElementById("item4")
+var ctx4=cccc.getContext('2d')
+ctx4.fillStyle=items[Math.floor(Math.random()*items.length)];
+ctx4.fillRect(120,20,h,w*2)
+ctx4.fillStyle=items[Math.floor(Math.random()*items.length)];
+ctx4.fillRect(124,20,10,15)
+ctx4.fillRect(136,20,10,15)
+}
+function convertred(){
+if(localStorage.getItem('highscore')>40){
+i="red"}
+else{alert('you must have highscore greater than 40 to unlock it')}
+}
+function blue(){
+if(localStorage.getItem('highscore')>80){
+i="blue"}
+else{alert("you must have highscoremore than 80")}}
+function orange(){
+if(localStorage.getItem('highscore')>200){
+i="orange"}
+else{alert("you must have highscoremore than 120")}
+}
+function pink(){
+if(localStorage.getItem('highscore')>170){
+i="pink"}
+else{alert('highscore must be more than 170')}
+}
+function green(){
+if(localStorage.getItem('highscore')>100)
+{i="lightgreen"}
+else{alert('you need highscore more than 100')}
+}
+function rainbow(){
+if(localStorage.getItem('highscore')>250){
+var w11=items[Math.floor(Math.random()*items.length)]
+requestAnimationFrame(rainbow)
+i=w11
+}
+else{alert('highscore must be more than 150')}
+}
+function headred(){
+if(localStorage.getItem('highscore')>300)
+{
+requestAnimationFrame(headred)
+i="red"
+x10=x+10;x20=x+30}
+else{alert('highscore more than 300')}
+}
+function headblue(){
+if(localStorage.getItem('highscore')>350){
+requestAnimationFrame(headblue)
+i="blue"
+x10=x+10;x20=x+30}
+else{alert('highscore more than 350')}
+}
+function headgreen(){
+if(localStorage.getItem('highscore')>400){
+requestAnimationFrame(headgreen)
+i="lightgreen";x10=x+10;x20=x+30}
+else{alert('highscore more than 400')}
+}
+function special(){
+if(localStorage.getItem('highscore')>500){
+requestAnimationFrame(special)
+i=items[Math.floor(Math.random()*items.length)]
+x10=x+10;x20=x+30}
+else{alert('highscore more than 500')}
+}
+</script>
+</head>
+<body  onkeypress="move(event)" onload="shopview()">
+<div id=head>
+<h1>Trafic Move</h1>
+</div><br/><br/><br/>
+<div id=score1 float="center">
+<input id=btn type=button value="score:0"  >
+<input id=highscore1 type=button value="highscore:">
+
+</div><br/><br/><br/>
+<div id=canvasdiv>
+<canvas background="https://thumbs.dreamstime.com/z/asphalt-road-markings-top-view-47240953.jpg" id=canvas1 ></canvas>
+<div id=info>
+<h1> menue </h1>
+<br/><br/>
+<h2>.how to play</h2>
+<p>hey there !i will tell you how to play the game.<br/>
+so first you have to press ENTER BUTTON to<br/> start the game.
+To move right or left press the<br/> RIGHT ARROW BUTTON "->" and LEFT <br/>ARROW BUTTON "<-"
+you can choose a <br/>diffrent car from the store by scoring points.<br/>
+STORE ID DOWN \|/</p>
+<br/><br/><br/><br/></div>
+<div id=shop >
+<h2>.Store</h2>
+<br/>
+<div id=items>
+<canvas id=item1 ></canvas>
+<br/>
+............<input type=button id=red value=red onclick="convertred()">........................<input type=button id=blue value=blue onclick="blue()">.....................<input type=button id=rainbow value=green onclick="green()">..................
+
+<canvas id=item2></canvas><br/>
+............<input type=button id=pink value=pink onclick="pink()">........................<input type=button id=orange value=orange onclick="orange()">...................<input type=button id=rinbow value=rainbow onclick="rainbow()">.............
+<br/>
+<canvas id=item3></canvas>
+............<input type=button id=headred value=red onclick="headred()">........................<input type=button id=blue value=blue onclick="headblue()">.....................<input type=button id=rainbow value=green onclick="headgreen()">..................
+<br/>
+
+<canvas id=item4></canvas><br/><br/>
+...............................................<input type=button id=special onclick='special()'>.........................
+
+
+</div><br/>
+
+</div> 
+</div>
+<div id=btns>
+</div>
+
+</body>
+</html>
