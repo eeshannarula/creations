@@ -10,14 +10,13 @@ function DNA()
 }
 
 
-var rockers=[]
+var population;
 var count=200;
 
 function setup() {
 	createCanvas(600, 600);
-	for (var i =20; i >= 0; i--) {
-		rockers[i]=new rocket()
-	}
+	population=new population()
+	
 	
 }
 
@@ -29,11 +28,31 @@ if(count<0)
 {
 	count=200
 }
-for (var i = 0; i < rockers.length; i++) {
-	rockers[i].show()
-	rockers[i].update()
+population.run()
 }
+
+function population()
+{
+	this.rockets=[]
+    this.popsize=100
+
+    for (var i =this.popsize; i >= 0; i--) {
+		this.rockets[i]=new rocket()}
+	this.run=function()
+	{
+		for (var i =this.popsize; i >= 0; i--) {
+		
+		this.rockets[i].show()
+		this.rockets[i].update()
+
+	}
+
+
+	}
 }
+
+
+
 
 
 function rocket()
@@ -68,4 +87,6 @@ function rocket()
 		}
 	}
 }
+
+
 
