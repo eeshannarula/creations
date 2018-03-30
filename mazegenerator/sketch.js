@@ -43,15 +43,18 @@ function draw() {
 						 if(current==grid[i][j])
 						 {
 							 grid[i][j].current=true;
+							 grid[i][j].visited=true;
+							 var next=grid[i][j].checkNeighbours()
+							 current=next;
 						 }
-						 else{
-							 grid[i][j].current=false;
-						 }
+						 // else{
+							//  grid[i][j].current=false;
+						 // }
 					 }
 				 }
 
-				 var next=current.checkNeighbours()
-				 current=next;
+
+
 }
 
 function cell(i,j)
@@ -108,25 +111,28 @@ function cell(i,j)
 			 //chek surroundins...
 
         var neighbours=[];
+        if((j-1)>-1){
+        var top=grid[i][j-1];}
+				if((i+1)<=cols-1){
+				var right=grid[i+1][j];}
+				if((j+1)<=rows-1){
+				var bottom=grid[i][j+1];}
+				if((i-1)>-1){
+				var left=[i-1][j];}
 
-        var top=grid[i][j-1];
-				var right=grid[i+1][j];
-				var bottom=grid[i][j+1];
-				var left=[i-1][j];
-
-				if (top & !top.visited)
+				if (top && !top.visited)
 				{
 					     neighbours.push(top)
 				}
-				if (right & !right.visited)
+				if (right && !right.visited)
 				{
 					neighbours.push(right)
 				}
-				if (bottom & !bottom.visited)
+				if (bottom && !bottom.visited)
 				{
 					neighbours.push(bottom)
 				}
-				if (left & !left.visited)
+				if (left && !left.visited)
 				{
 					neighbours.push(left)
 				}
