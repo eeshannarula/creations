@@ -39,6 +39,7 @@ function draw() {
 				 for (var i = 0; i < cols; i++) {
 					 for (var j = 0; j <rows; j++) {
 						 grid[i][j].show();
+
 						 if(current==grid[i][j])
 						 {
 							 grid[i][j].current=true;
@@ -48,6 +49,9 @@ function draw() {
 						 }
 					 }
 				 }
+
+				 var next=current.checkNeighbours()
+				 current=next;
 }
 
 function cell(i,j)
@@ -102,5 +106,34 @@ function cell(i,j)
 		 this.checkNeighbours=function()
 		 {
 			 //chek surroundins...
+
+        var neighbours=[];
+
+        var top=grid[i][j-1];
+				var right=grid[i+1][j];
+				var bottom=grid[i][j+1];
+				var left=[i-1][j];
+
+				if (top & !top.visited)
+				{
+					     neighbours.push(top)
+				}
+				if (right & !right.visited)
+				{
+					neighbours.push(right)
+				}
+				if (bottom & !bottom.visited)
+				{
+					neighbours.push(bottom)
+				}
+				if (left & !left.visited)
+				{
+					neighbours.push(left)
+				}
+
+				var r=random(neighbours);
+
+		    return r;
+
 		 }
 }
