@@ -111,14 +111,22 @@ function cell(i,j)
 			 //chek surroundins...
 
         var neighbours=[];
-        if((j-1)>-1){
-        var top=grid[i][j-1];}
-				if((i+1)<=cols-1){
-				var right=grid[i+1][j];}
-				if((j+1)<=rows-1){
-				var bottom=grid[i][j+1];}
-				if((i-1)>-1){
-				var left=[i-1][j];}
+                               if((j-1)>-1)
+	{
+                                var top=grid[i][j-1];
+	}
+				if((i+1)<=cols-1)
+				{
+				var right=grid[i+1][j];
+				}
+				if((j+1)<=rows-1)
+				{
+				var bottom=grid[i][j+1];
+				}
+				if((i-1)>-1)
+				{
+				var left=[i-1][j];
+				}
 
 				if (top && !top.visited)
 				{
