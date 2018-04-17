@@ -9,6 +9,7 @@ function setup() {
 
 function draw() {
   background(0);
+
   for (var i = pipes.length - 1; i >= 0; i--) {
     pipes[i].show();
     pipes[i].update();
@@ -22,8 +23,8 @@ function draw() {
   if (population.checkIfAllDie()) {
     //population = new Population();
      population=population.meatingpool();
-    pipes = [];
-    pipes.push(new Pipe());
+   pipes = [];
+   pipes.push(new Pipe());
   }
 
 
@@ -32,13 +33,11 @@ function draw() {
 
 
 
-  if (frameCount % 100 == 0) {
-    pipes.push(new Pipe());
-  }
+
+
+if (frameCount % 100 == 0) {
+  pipes.push(new Pipe());
 }
 
-function keyPressed() {
-  if (key == ' ') {
-    bird.up();
-  }
+
 }

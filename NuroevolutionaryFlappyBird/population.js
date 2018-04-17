@@ -1,7 +1,7 @@
 class Population {
   constructor(birds) {
 
-    this.popSize = 1000;
+    this.popSize = 400;
 
     if (birds) {
       this.birds = birds;
@@ -68,12 +68,14 @@ class Population {
 
       if (random(1) > 0.5) {
         let childBrain = parent1.crossOver(parent2);
+        childBrain.mutate(0.01)
         let child = new Bird(childBrain);
         newPopulation.push(child);
 
 
       } else {
         let childBrain = parent2.crossOver(parent1);
+        childBrain.mutate(0.01)
         let child = new Bird(childBrain);
         newPopulation.push(child);
       }
@@ -85,9 +87,5 @@ class Population {
 
   }
 
-  mutation() {
-    for (var i = 0; i < this.birds.length; i++) {
-      this.birds[i].brain.mutate(0.000000000000001);
-    }
-  }
+  
 }
