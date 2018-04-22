@@ -26,6 +26,7 @@ class cell {
         fill(255, 0, 100);
         ellipse(this.x + this.side / 2, this.y + this.side / 2, this.side / 2, this.side / 2);
         pop()
+        revealAll();
       } else {
         let totalNaighbours = this.checkNeighbours();
         if (totalNaighbours !== 0) {

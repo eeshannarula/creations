@@ -26,12 +26,20 @@ function setup() {
 
 function draw() {
   background(51);
-	frameRate(10);
+  frameRate(10);
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
       grid[i][j].show();
-			grid[i][j].update();
+      grid[i][j].update();
     }
   }
 
+}
+
+function revealAll() {
+  for (var i = 0; i < cols; i++) {
+    for (var j = 0; j < rows; j++) {
+      grid[i][j].reveled = true;
+    }
+  }
 }
