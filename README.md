@@ -27,7 +27,6 @@
 
 ## Neural Network Library
 
-* by daniel shiffman [![Build Status](https://circleci.com/gh/CodingTrain/Toy-Neural-Network-JS.png?&style=shield&circle-token=:circle-token)](https://circleci.com/gh/CodingTrain/Toy-Neural-Network-JS)
-
+* by daniel shiffman [![Build Status]()](https://github/CodingTrain/Toy-Neural-Network
 ## author 
 * Eeshan Narula..A 16 year old child...
