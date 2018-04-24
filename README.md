@@ -20,9 +20,9 @@
 * [x] snow fall
 * [x] super flappybird(part of neuro evolutioary flappy bird)
 * [x] timer 
-* [] neuro evolutionary snake game
-* [] nero evolutionary pong game
-* [] nero evolutionary stearing behaver
+* [ ] neuro evolutionary snake game
+* [ ] nero evolutionary pong game
+* [ ] nero evolutionary stearing behaver
 
 
 ## Neural Network Library
