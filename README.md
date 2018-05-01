@@ -23,7 +23,7 @@
 * [x] stearing behavior genitic algorith
 * [ ] neuro evolutionary snake game
 * [ ] nero evolutionary pong game
-* [ ] nero evolutionary stearing behaver
+* [x] nero evolutionary stearing behaver
 
 
 ## Neural Network Library
