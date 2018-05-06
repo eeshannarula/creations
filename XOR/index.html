@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>XOR</title>
+	<script src="flowDlib/flowD.js"></script>
+	<script src="flowDlib/matrix.js"></script>
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="libraries/p5.sound.js"></script>
+
+	<script src="sketch.js"></script>
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		canvas {
+			margin: auto;
+		}
+
+		button {
+			font-size: 40px;
+			text-align: center;
+		}
+
+		h1{
+			font-size: 100px;
+			background-color: lightblue;
+			text-align:center;
+		}
+
+		input {
+			height: 60px;
+			width: 60px;
+			text-align: right;
+			font-size: 40px;
+			position: sticky;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 font-size:"100px">XOR</h1><br>
+	<input id='input_one'>
+	<input id='input_two'> <br>
+	<button onclick='train()'>TRAIN</button>
+	<button onclick='guess()'>GUESS</button>
+</body>
+
+</html>
