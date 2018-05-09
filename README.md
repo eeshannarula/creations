@@ -29,6 +29,6 @@
 ## Neural Network Library
 
 * by daniel shiffman [![Build Status]()](https://github.com/CodingTrain/Toy-Neural-Network-JS)
-* by Me [![Build Status]()](https://github.com/eeshannarula/foldDlib.git)
+* by Me [![Build Status]()](https://github.com/eeshannarula/DlibsDotJs.git)
 ## author 
 * Eeshan Narula..A 16 year old boy...
