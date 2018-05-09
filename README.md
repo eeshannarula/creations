@@ -20,6 +20,8 @@
 * [x] snow fall
 * [x] super flappybird(part of neuro evolutioary flappy bird)
 * [x] timer 
+* [x] mnist
+* [x] fashion mnist 
 * [x] stearing behavior genitic algorith
 * [ ] neuro evolutionary snake game
 * [ ] nero evolutionary pong game
