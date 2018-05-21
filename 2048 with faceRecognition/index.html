@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>2048</title>
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="libraries/p5.sound.js"></script>
+	<script src="functions.js"></script>
+	<script src="sketch.js"></script>
+	<script src="colors.js"></script>
+	<script src="webcamTf for 2048/libraries/webcam.js"></script>
+	<script src="webcamTf for 2048/train.js"></script>
+	<script src="webcamTf for 2048/handeler.js"></script>
+	<script src="webcamTf for 2048/controller.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.10.0">
+	</script>
+
+	<style>
+		body {
+			margin:0;
+			padding:0;
+			overflow: hidden;
+		}
+		canvas {
+			margin:auto;
+		}
+	</style>
+</head>
+<body>
+	<div id='container'></div>
+	<button onclick="ButtonPressed()">swipe</button>
+	<video width="224" height="224" autoplay="true" id="videoElement"></video><br> learningRate
+	<select id="learningRate">
+              <option value="0.00001">0.00001</option>
+              <option selected value="0.0001">0.0001</option>
+              <option value="0.01">0.001</option>
+              <option value="0.03">0.003</option>
+  </select> <br> dense-units
+	<select id="dense-units">
+					    <option selected value="10">10</option>
+					    <option value="100">100</option>
+					    <option value="200">200</option>
+	</select><br> epochs
+	<select id="epochs">
+			        <option value="10">10</option>
+			        <option selected value="20">20</option>
+			        <option value="40">40</option>
+	</select> <br> batchSizeFraction
+	<select id="batchSizeFraction">
+					    <option value="0.05">0.05</option>
+					    <option value="0.1">0.1</option>
+					    <option selected value="0.4">0.4</option>
+					    <option value="1">1</option>
+	</select> <br> capture :
+
+</body>
+</html>
