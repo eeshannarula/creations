@@ -27,3 +27,4 @@
 * [ ] neuro evolutionary snake game
 * [ ] nero evolutionary pong game
 * [x] nero evolutionary stearing behaver
+* [ ] AND MANY MORE. NOT LISTED SORRY...
