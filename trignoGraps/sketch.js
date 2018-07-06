@@ -25,7 +25,7 @@ function drawGraph() {
   }
   stroke(100, 100, 255);
   textSize(20);
-  text('scl_X :' + scl + 'degree per block', 30, 40);
+  text('scl_X :' + 30 + 'degree per block', 30, 40);
   text('scl_Y : 2 units per block', 30, 70);
 
 }
