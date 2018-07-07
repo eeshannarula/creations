@@ -1,13 +1,21 @@
 let scl = 10;
+let mouseVector;
+let currentFunction;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(600, 600).parent('#container');
+  currentFunction = cos;
+  mouseVector = createVector(mouseX, mouseY);
 }
 
 function draw() {
   background(0);
   drawGraph();
-  drawFunction(sin);
+  mouseVector = createVector(mouseX, mouseY);
+  line(0, mouseVector.y, width, mouseVector.y);
+  line(mouseVector.x, 0, mouseVector.x, height);
+  ellipse(mouseVector.x, mouseVector.y, 10, 10);
+  drawFunction(currentFunction, 10, 0, 1, -30, 30);
 }
 
 function drawGraph() {
@@ -25,17 +33,17 @@ function drawGraph() {
   }
   stroke(100, 100, 255);
   textSize(20);
-  text('scl_X :' + 30 + 'degree per block', 30, 40);
+  text('scl_X : 30 degree per block', 30, 40);
   text('scl_Y : 2 units per block', 30, 70);
 
 }
 
-function drawFunction(func) {
+function drawFunction(func, verticalShift, horizontalShift, intervals, start, stop) {
   beginShape();
   noFill();
   stroke(0, 255, 100);
-  for (var i = 0; i < 360; i += 0.001) {
-    let val = 10 * (func(i));
+  for (var i = start; i < stop; i += 0.001) {
+    let val = verticalShift * ((map(func(intervals * i + horizontalShift), -1, 1, 1, -1)));
     vertex(width / 2 + (i * scl * 1.9), height / 2 + (val * scl * 1 / 2));
   }
   endShape();
