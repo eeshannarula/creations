@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>cats_dogs_pretrained</title>
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="libraries/p5.sound.js"></script>
+	<script src="sketch.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		canvas {
+			margin: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container"></div>
+	<p>model-upload:</p>
+	<input id="json-upload" type="file" /> <br>
+	<p>weights-upload:</p>
+	<input id="weights-upload" type="file" /><br><br>
+	<button onclick="loadModel()">LOAD-MODEL</button>
+	<button onclick="predict()">PREDICT</button>
+	<button onclick="shift()">SWITCH</button>
+	<button onclick="next()">NEXT</button>
+
+
+</body>
+
+</html>
