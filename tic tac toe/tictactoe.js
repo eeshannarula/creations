@@ -14,7 +14,7 @@ function mouse(event) {
 }
 
 function check() {
-    let buttons = [
+    let values = [
         form.btn1.value, form.btn2.value, form.btn3.value,
         form.btn4.value, form.btn5.value, form.btn6.value,
         form.btn7.value, form.btn8.value, form.btn9.value
@@ -30,7 +30,7 @@ function check() {
     }
     
     for (let item in conditions) {
-        if compare(buttons, ...item) {
+        if (compare(values, ...item)) {
 	    alert('win');
 	    location.reload();
 	}
