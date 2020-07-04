@@ -26,7 +26,7 @@ function check() {
     ]
     
     function compare(arr, x, y, z) {
-        return arr[x - 1] == arr[y - 1] == arr[z - 1];
+        return arr[x - 1] == arr[y - 1] && arr[y - 1] == arr[z - 1];
     }
     
     for (let item in conditions) {
